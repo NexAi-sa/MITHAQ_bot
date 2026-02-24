@@ -2,7 +2,8 @@
 // Replicates the 3-step AI chain: Strategist → Writer → Optimizer
 
 const OpenAI = require('openai');
-const brandContext = require('./brand-context');
+let brandContext;
+try { brandContext = require('./brand-context'); } catch { brandContext = require('./lib/brand-context'); }
 
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 

@@ -2,7 +2,13 @@
 // Replaces the n8n workflow with a simple Node.js cron scheduler
 
 const cron = require('node-cron');
-const { generateContent, publishApproved } = require('./lib/pipeline');
+let pipeline;
+try {
+    pipeline = require('./lib/pipeline');
+} catch {
+    pipeline = require('./pipeline');
+}
+const { generateContent, publishApproved } = pipeline;
 
 console.log('🤖 ═══════════════════════════════════════');
 console.log('   Mithaq Content Bot v1.0');
