@@ -1,0 +1,16 @@
+{
+    "name": "mithaq-bot",
+    "version": "1.0.0",
+    "description": "Mithaq Content Automation - generates and publishes tweets",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js",
+        "generate": "node -e \"require('./lib/pipeline').generateContent()\"",
+        "publish": "node -e \"require('./lib/pipeline').publishApproved()\""
+    },
+    "dependencies": {
+        "googleapis": "^140.0.0",
+        "node-cron": "^3.0.3",
+        "openai": "^4.76.0"
+    }
+}
